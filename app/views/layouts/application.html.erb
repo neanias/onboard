@@ -1,14 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
   <title>Onboard</title>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <header class="row">
+    <h1 class="two columns">
+      <%= link_to(root_path) do %>
+        <%= image_tag "logo.png" %>
+      <% end %>
+    </h1>
+
+    <form action="<%= root_path %>" class="three columns">
+      <input type="text" name="location">
+    </form>
+
+    <nav class="seven columns">
+      <% if current_user.present? %>
+        <strong><%= current_user.username %></strong>
+        <%= link_to "Dashboard", "#" %>
+        <%= link_to "Add a room", new_room_path %>
+        <%= link_to "Orders", "#" %>
+        <%= link_to "Log out", "#" %>
+
+
+      <% else %>
+        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Sign in", "#" %>
+      <% end -%>
+
+    </nav>
+  </header>
+
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+  <% end %>
+
+  <article class="row">
+    <%= yield %>
+  </article>
+
+  <footer>
+    <p>&copy; <%= Date.today.year %> Onboard Ltd</p>
+  </footer>
+</div>
 
 </body>
 </html>
