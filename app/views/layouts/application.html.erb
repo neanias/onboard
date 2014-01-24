@@ -23,7 +23,10 @@
 
     <nav class="seven columns">
       <% if current_user.present? %>
+
+        <%= image_tag current_user.avatar(:thumbnail) %>
         <strong><%= current_user.username %></strong>
+
         <%= link_to "Dashboard", "#" %>
         <%= link_to "Add a room", new_room_path %>
         <%= link_to "Orders", "#" %>
