@@ -6,7 +6,14 @@
 
 <p><%= @room.latitude %>, <%= @room.longitude %></p>
 
+
 <div class='actions'>
-  <%= link_to 'Edit', edit_room_path(@room), class: 'button' %>
-  <%= link_to 'Delete', room_path(@room), method: :delete, class: 'button', confirm: 'Are you sure?' %>
+  <% unless current_user.present? && !current_user == @room.user %>
+    <%= link_to 'Book room', new_room_order_path(@room), class: 'button' %>
+  <% end -%>
+
+  <% if current_user.present? && current_user == @room.user %>
+    <%= link_to 'Edit', edit_room_path(@room), class: 'button' %>
+    <%= link_to 'Delete', room_path(@room), method: :delete, class: 'button', confirm: 'Are you sure?' %>
+  <% end -%>
 </div>

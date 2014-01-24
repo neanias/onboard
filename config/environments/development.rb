@@ -1,3 +1,10 @@
+# This is Stripe's test secret key
+Stripe.api_key = 'sk_test_ksuetia3x7qP1bRELPKPzuoV'
+
+# This is Stripe's test publishable key
+STRIPE_KEY = 'pk_test_6vcr842ZLRYRIHmcOQLAjVY6'
+
+
 Onboard::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
