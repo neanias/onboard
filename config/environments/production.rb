@@ -1,8 +1,8 @@
 # This is Stripe's test secret key
-Stripe.api_key = 'sk_live_E3BnWb1JPsC8Q5Qu7DIbT8XV'
+Stripe.api_key = 'sk_live_E3BnWb1JPsC8Q5Qu7DIbT8XV' # No longer valid
 
 # This is Stripe's test publishable key
-STRIPE_KEY = 'pk_live_AV35KST4Tu0fzIOX9IrdfpmT'
+STRIPE_KEY = 'pk_live_AV35KST4Tu0fzIOX9IrdfpmT' # No longer valid
 
 
 Onboard::Application.configure do
